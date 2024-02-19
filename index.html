@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+    <div class="row">
+        <div class="column">
+            <h1>Oracle One - Proyecto Encriptador</h1>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="column">
+            <div class="containerform">
+                <div class="itemmain">
+                    <h2 class="info"><label for="txttext">Ingrese el texto</label></h2>
+                </div>
+                <div class="itemmain">
+                    <p class="instruction">El siguiente sistema cifra y descfira un texto utilizando la libreria de Crypto-JS, ingrese el texto y presione alguna de las opciones</p>
+                </div>
+                <div class="itemmain">
+                    <textarea id="txttext" onkeyup="textAreaValidator(event)" class="textbox" placeholder="Escriba su texto en esta sección"></textarea>       
+                </div>
+
+                <div class="itemmain errors" id="errorscontainer">
+                    <h2 class="alert">Mensajes importantes</h2>
+                    <p id="errortext" class="instruction">Error Text</p>
+                </div>
+
+                <div class="itemmain">
+                    <input id="btnencypt" class="primary buttonsmain" type="button" value="Cifrar el texto" disabled onclick="Encrypt()">
+                </div>
+
+                <div class="itemmain">
+                    <input id="btndecrypt" class="secondary buttonsmain" type="button" disabled value="Descifrar el texto" onclick="Decrypt()" >
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="containerform lastdiv">
+                <div class="itemmaintwo">
+                    <h2 class="info" id="titleresult">Resultados</h2>
+                    <p class="results" id="result">No se ha ingresado ningun texto aun</p>
+                </div>
+                <div class="itemmaintwo">
+                    <input id="btncopy" onclick="copyToClipboard()" class="copy buttonsmaintwo" type="button" disabled value="Copiar el texto" >
+                    <span class="nodisplay spanmark" id="infocopy">No se ha escrito ningun texto aún</span>
+                </div>
+                <div class="itemmaintwo">
+                    <input id="btnclean" onclick="actionClean()" class="clean buttonsmaintwo" type="button" disabled value="Limpiar los campos" >
+                </div>
+                <div class="itemmaintwo">
+                    <div class="containerimage">
+                        <img class="imagechallenge" src="image.svg">
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Christian Javier Piedra Quiros / Alura - Oracle One - 2024</p>
+    </div>             
+    
+</section>
+
+
+</body>
+<script src="crypto-js.min.js"></script>
+<script src="app.js"></script>
+
+</html>

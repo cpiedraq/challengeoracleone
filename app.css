@@ -1,0 +1,339 @@
+body{
+    background-color: #81C3D7;
+    font-family: "Arimo", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 18px;
+    margin-bottom:50px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+h1
+{
+    color: #FFFFFF;
+    text-align: center;
+}
+
+h2
+{
+    margin: 2px;
+}
+
+h3
+{
+    color: #16425B;
+    margin: 2px;
+}
+
+.instruction
+{
+    margin: 5px;
+    overflow-wrap: break-word;
+}
+
+.results
+{
+    margin: 5px;
+    overflow-wrap: break-word;
+    background: rgb(255, 255, 255, 0.40);
+    
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.textbox
+{
+    font-family: "Arimo", sans-serif;
+    padding: 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    align-items: center;
+    width: 90%;
+    height: 100px;
+    font-size: 18px;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.textbox:disabled,
+.textbox[disabled]
+{
+    background-color: rgb(255, 255, 255, 0.40);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: initial;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    align-items: center;
+}
+
+.containerform
+{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: rgb(255, 255, 255, 0.40);
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+}
+
+.containerimage
+{
+    margin-left:-20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    padding: 10px;
+    border: none;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.imagechallenge
+{
+    height:150px;
+    margin-right: auto;
+}
+
+.itemmaintwo
+{
+    padding: 2px;
+    margin: 2px 10px 5px 10px;
+    align-items: center;
+    width: 90%;
+    text-align: left;
+}
+
+.itemmain
+{
+    padding: 2px;
+    margin: 2px 10px 5px 10px;
+    align-items: center;
+    width: 90%;
+    text-align: right;
+}
+
+.errors
+{
+    display: none;
+}
+
+.nodisplay
+{
+    display: none;
+}
+
+.primary
+{
+    width: 300px;
+    background-color: #50BE33;
+    color: #FFFFFF;
+    transition: 1s;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.primary:hover
+{ 
+    background-color: #337D1E;
+}
+
+.primary:disabled,
+.primary[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.primary-color
+{
+    color: #50BE33;
+}
+
+.secondary
+{
+    width: 300px;
+    background-color: #E23030;
+    color: #FFFFFF;
+    transition: 1s;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.secondary:hover
+{ 
+    background-color: #AB1D1D;
+}
+
+.secondary:disabled,
+.secondary[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.secondary-color
+{
+    color: #E23030;
+}
+
+.clean
+{
+    width: 300px;
+    background-color: #2BC3BF;
+    color: #FFFFFF;
+    transition: 1s;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0px;
+}
+
+.clean:hover
+{ 
+    background-color: #22A5A1;
+}
+
+.clean:disabled,
+.clean[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.copy
+{
+    width: 300px;
+    background-color: #636DE1;
+    color: #FFFFFF;
+    transition: 1s;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0px;
+}
+
+.copy:hover
+{ 
+    background-color: #2E39BD;
+}
+
+.copy:disabled,
+.copy[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.footer
+{
+    margin-top: 20px;
+    border-top: solid;
+    border-color: white;
+    background-color: #3A7CA5;
+    color: white;
+    text-align: center;
+    transition: 2s;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer:hover
+{
+    background-color: #2F6690;
+}
+
+.alert
+{
+    color: #E04F3C;
+}
+
+.info
+{
+    color: #16425B;
+}
+
+.spanmark
+{
+    margin-top:5px;
+    margin-bottom: 5px;
+    color: #2E8C3B;
+    font-weight: bold;
+}
+
+.buttonsmain
+{
+    text-align: right;
+}
+
+.buttonsmaintwo
+{
+    text-align: left;
+}
+
+
+@media (max-width: 700px)
+{
+    .itemmain
+    {
+        text-align: center;
+    }
+
+    .itemmaintwo
+    {
+        text-align: center;
+    }
+
+    .imagechallenge
+    {
+        margin: auto;
+    }
+
+    .textbox
+    {
+        text-align: center;
+    }
+
+    .results {
+        width: 90%;
+        text-align: center;
+    }
+
+    .lastdiv
+    {
+        margin-bottom: 80px;
+    }
+
+    .buttonsmain
+    {
+        text-align: center;
+    }
+
+    .buttonsmaintwo
+    {
+        text-align: center;
+    }
+}
