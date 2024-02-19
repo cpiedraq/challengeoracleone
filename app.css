@@ -36,7 +36,6 @@ h3
     margin: 5px;
     overflow-wrap: break-word;
     background: rgb(255, 255, 255, 0.40);
-    
     padding: 20px;
     border-radius: 5px;
 }
@@ -318,7 +317,7 @@ h3
     }
 
     .results {
-        width: 90%;
+        width: 300px;
         text-align: center;
     }
 
