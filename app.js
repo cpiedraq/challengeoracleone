@@ -1,5 +1,68 @@
 let SecretPasspharse = "OracleOne";
 
+matriz = {
+    a : "1aiuwuddwqd",
+    b: "2bdascac",
+    c: "3hgacsacsca",
+    d: "8ajsjyugff",
+    e: "7stwtqqwyyy",
+    f: "nauay62bhch",
+    g: "atqwq3rwew4",
+    h: "11yyqwsqwec6",
+    i: "a7d682s8ahd",
+    j: "872qg1827232",
+    k: "qr152n227aeoi",
+    l: "q763aa272haewe",
+    m: "7q7ade1827yad",
+    n: "ahyqwy1277gaas",
+    o: "oweuaj1726asf",
+    p: "qayb31626qand",
+    q: "61hayad1872ja",
+    r: "ay171ad1827au",
+    s: "knb261827adf",
+    t: "816baxd12727",
+    u: "9i0audnabacx23",
+    v: "54bfa1127ajsf",
+    w: "817173217ansh1",
+    x: "a87178912jabs",
+    y: "a7q7ad18278ua",
+    z: "612833ad1287a"
+}
+
+let texttoencrypt = "hola123";
+let encriptacion = "";
+let desencriptacion = "";
+
+console.log(encriptacion);
+
+console.log(matriz);
+
+texttoencrypt.split("").map(function(element){
+    
+    if(matriz.hasOwnProperty(element))
+    {
+        console.log(matriz[element]);
+        encriptacion = encriptacion + matriz[element];
+    }
+    else
+    {
+        encriptacion = encriptacion + element;
+    }
+});
+
+console.log(encriptacion);
+
+Object.entries(matriz).forEach(([key, value]) =>
+{
+
+
+    encriptacion= encriptacion.replaceAll(value, key);
+}
+);
+
+console.log(encriptacion);
+
+
 
 function textAreaValidator(e)
 {
