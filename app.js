@@ -73,7 +73,7 @@ function Decrypt()
 
 function copyToClipboard()
 {
-    var copyText = document.getElementById("result").innerText;
+    var copyText = document.getElementById("result").value;
 
    // Copy the text inside the text field
     navigator.clipboard.writeText(copyText);
