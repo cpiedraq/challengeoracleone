@@ -261,6 +261,7 @@ h3
     left: 0;
     bottom: 0;
     width: 100%;
+    font-size: 14px;
 }
 
 .footer:hover
@@ -306,9 +307,9 @@ h3
     align-items: center;
     width: 90%;
     font-size: 18px;
+    height: 100px;
     vertical-align: middle;
     text-align: left;
-    min-height: 5em;
     background-color: #D7E6DB;
 }
 

@@ -1,4 +1,7 @@
-let SecretPasspharse = "OracleOne";
+//Author: Christian Piedra Q
+//Version 1.0
+
+//Variables of the Script
 
 matriz = {
     a : "1aiuwuddwqd",
@@ -26,43 +29,46 @@ matriz = {
     w: "817173217ansh1",
     x: "a87178912jabs",
     y: "a7q7ad18278ua",
-    z: "612833ad1287a"
+    z: "612833ad1287a",
+    " " : "17gqgwgywygwgyq"
 }
 
-let texttoencrypt = "hola123";
-let encriptacion = "";
-let desencriptacion = "";
+//Methods for encrypt and decrypt
 
-console.log(encriptacion);
-
-console.log(matriz);
-
-texttoencrypt.split("").map(function(element){
-    
-    if(matriz.hasOwnProperty(element))
-    {
-        console.log(matriz[element]);
-        encriptacion = encriptacion + matriz[element];
-    }
-    else
-    {
-        encriptacion = encriptacion + element;
-    }
-});
-
-console.log(encriptacion);
-
-Object.entries(matriz).forEach(([key, value]) =>
+function encryptText(texttoencrypt)
 {
+    let textEncrypted = "";
 
+    texttoencrypt.split("").map(function(element){
+    
+        if(matriz.hasOwnProperty(element))
+        {
+            console.log(matriz[element]);
+            textEncrypted = textEncrypted + matriz[element];
+        }
+        else
+        {
+            textEncrypted = textEncrypted + element;
+        }
+    });
 
-    encriptacion= encriptacion.replaceAll(value, key);
+    return textEncrypted;
 }
-);
 
-console.log(encriptacion);
+function decryptText(textEncrypted)
+{
+    let textDecrypted = textEncrypted;
 
+    Object.entries(matriz).forEach(([key, value]) =>
+    {
+        textDecrypted= textDecrypted.replaceAll(value, key);
+    }
+    );
 
+    return textDecrypted;
+}
+
+//Actions of the DOM
 
 function textAreaValidator(e)
 {
@@ -78,16 +84,7 @@ function textAreaValidator(e)
     }
 }
 
-function actionClean()
-{
-    copiedTextNonDisplay();
-    disableCopyButton();
-    disableCleanButton();
-    enableTextAreaButton();
-    focusTextArea();
-    valueResultTitleLabel("Resultados");
-    valueResultLabel("No se ha escrito un texto aún");
-}
+
 
 function Encrypt()
 {
@@ -144,18 +141,16 @@ function copyToClipboard()
     valueTextCopied();
 }
 
-function encryptText(text)
+
+function actionClean()
 {
-    var encrypted = CryptoJS.AES.encrypt(text, SecretPasspharse );
-
-    return encrypted;
-}
-
-function decryptText(text)
-{
-    var decrypted = CryptoJS.AES.decrypt(text, SecretPasspharse);
-
-    return decrypted.toString(CryptoJS.enc.Utf8);
+    copiedTextNonDisplay();
+    disableCopyButton();
+    disableCleanButton();
+    enableTextAreaButton();
+    focusTextArea();
+    valueResultTitleLabel("Resultados");
+    valueResultLabel("No se ha escrito un texto aún");
 }
 
 function checkConditions(text)
