@@ -56,16 +56,6 @@ h3
     overflow-wrap: break-word;
 }
 
-.results
-{
-    margin: 5px;
-    overflow-wrap: break-word;
-    background: rgb(255, 255, 255, 0.40);
-    padding: 20px;
-    border-radius: 5px;
-    text-wrap: wrap;
-    width: 400px;
-}
 
 .textbox
 {
@@ -116,6 +106,17 @@ h3
     border-radius: 15px;
     flex-grow: 3;
     display:inline-flex;
+}
+
+.results
+{
+    margin: 5px;
+    overflow-wrap: break-word;
+    background: rgb(255, 255, 255, 0.40);
+    padding: 20px;
+    border-radius: 5px;
+    text-wrap: wrap;
+    width: 400px;
 }
 
 .containerimage

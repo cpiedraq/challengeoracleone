@@ -3,11 +3,12 @@
 
 var TextAreaMain = document.getElementById("txttext");
 
-//Create the action to paste
+//Create the action when the user copy text on computer
 TextAreaMain.addEventListener('paste', function(event) {
     validateEnableButtons();
 });
 
+//Create the action when the user copy text on mobile
 TextAreaMain.addEventListener('input', function(event) {
     validateEnableButtons();
 });
@@ -15,7 +16,7 @@ TextAreaMain.addEventListener('input', function(event) {
 //Variables of the Script
 matriz = {
     a : "1aiuwuddwqd",
-    b: "2bdascac",
+    b: "2bdascacfsaln",
     c: "3hgacsacsca",
     d: "8ajsjyugff",
     e: "7stwtqqwyyy",
@@ -43,7 +44,9 @@ matriz = {
     " " : "17gqgwgywygwgyq"
 }
 
-//Methods for encrypt and decrypt
+//METHODS OF THE HTML COMPONENTS 
+
+//Method for encrypt Text
 function encryptText(texttoencrypt)
 {
     let textEncrypted = "";
@@ -63,6 +66,7 @@ function encryptText(texttoencrypt)
     return textEncrypted;
 }
 
+//Method for Decrypt Text
 function decryptText(textEncrypted)
 {
     let textDecrypted = textEncrypted;
@@ -76,12 +80,21 @@ function decryptText(textEncrypted)
     return textDecrypted;
 }
 
-//Actions of the DOM
+//Validate the text for enable buttons
 function textAreaValidator(e)
 {
     validateEnableButtons();
 }
 
+//Action of the button Copy
+function valueTextCopied()
+{
+    document.getElementById("infocopy").classList.remove("nodisplay");
+    document.getElementById("infocopy").innerText = "Copiado!!!";
+    swal("Texto Copiado", "El texto ha sido copiado, almacenelo o copielo para encriptar o desencriptar", "info");
+}
+
+//END OF THE FUNCTIONS OF THE OBJECTS OF THE HTML
 
 //Functions of the Webpage Buttons
 function Encrypt()
@@ -95,7 +108,7 @@ function Encrypt()
         clearTextArea();
         enableCopyButton();
         enableCleanButton();
-        disableTextAreaButton();
+        disableTextArea();
         focusButtonCopy();
 
         var textencypted = encryptText(textInserted);
@@ -120,7 +133,7 @@ function Decrypt()
         clearTextArea();
         enableCopyButton();
         enableCleanButton();
-        disableTextAreaButton();
+        disableTextArea();
     
         valueResultTitleLabel("Texto Desencriptado");
         focusButtonCopy();
@@ -152,12 +165,13 @@ function actionClean()
     copiedTextNonDisplay();
     disableCopyButton();
     disableCleanButton();
-    enableTextAreaButton();
+    enableTextArea();
     focusTextArea();
     valueResultTitleLabel("Resultados");
     valueResultLabel("No se ha escrito un texto aún");
 }
 
+//Check the conditions if the text has a specific requirements
 function checkConditions(text)
 {
     if(text == "")
@@ -185,11 +199,10 @@ function checkConditions(text)
     return true;
 }
 
+//Return if the text has special caracters
 function containsSpecialCaracters(text)
 {
     var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-
-    console.log(format.test(text));
 
     return format.test(text) ? true : false;
 }
@@ -266,53 +279,56 @@ function enableCopyButton()
     document.getElementById("btncopy").disabled = false;
 }
 
+//Disable Copy Button
 function disableCopyButton()
 {
     document.getElementById("btncopy").disabled = true;
 }
 
+//Enable Clean Button
 function enableCleanButton()
 {
     document.getElementById("btnclean").disabled = false;
 }
 
+//Disable Clean Button
 function disableCleanButton()
 {
     document.getElementById("btnclean").disabled = true;
 }
 
-function enableTextAreaButton()
+
+//Enable TextArea Button
+function enableTextArea()
 {
     document.getElementById("txttext").disabled = false;
 }
 
-function disableTextAreaButton()
+//Disable TextArea Button
+function disableTextArea()
 {
     document.getElementById("txttext").disabled = true;
 }
 
+//Change the text of the result
 function valueResultLabel(text)
 {
     document.getElementById("result").innerText = text;
 }
 
-function valueTextCopied()
-{
-    document.getElementById("infocopy").classList.remove("nodisplay");
-    document.getElementById("infocopy").innerText = "Copiado!!!";
-    swal("Texto Copiado", "El texto ha sido copiado, almacenelo o copielo para encriptar o desencriptar", "info");
-}
-
+//Not display the object that indicates that you copy the text
 function copiedTextNonDisplay()
 {
     document.getElementById("infocopy").classList.add("nodisplay");
 }
 
+//Change the value of the result
 function valueResultTitleLabel(text)
 {
     document.getElementById("titleresult").innerText = text;
 }
 
+//Change the color of the Results
 function changeColorResult(Nameofclass)
 {
     document.getElementById("result").classList.add(Nameofclass);
