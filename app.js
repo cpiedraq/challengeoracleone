@@ -8,6 +8,10 @@ TextAreaMain.addEventListener('paste', function(event) {
     validateEnableButtons();
 });
 
+TextAreaMain.addEventListener('touchend', function(event) {
+    validateEnableButtons();
+});
+
 //Variables of the Script
 matriz = {
     a : "1aiuwuddwqd",
