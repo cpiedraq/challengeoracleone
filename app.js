@@ -8,7 +8,7 @@ TextAreaMain.addEventListener('paste', function(event) {
     validateEnableButtons();
 });
 
-TextAreaMain.addEventListener('touchend', function(event) {
+TextAreaMain.addEventListener('input', function(event) {
     validateEnableButtons();
 });
 
