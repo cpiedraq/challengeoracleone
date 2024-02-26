@@ -95,8 +95,9 @@ function Encrypt()
         focusButtonCopy();
 
         var textencypted = encryptText(textInserted);
-
         valueResultLabel(textencypted);
+
+        swal("Información", "Se encriptó el mensaje de forma correcta", "success");
     }
     else
     {
@@ -121,8 +122,9 @@ function Decrypt()
         focusButtonCopy();
     
         var textdecrypted = decryptText(textInserted);
-    
         valueResultLabel(textdecrypted);
+
+        swal("Información", "Se desencriptó el mensaje de forma correcta", "success");
     }
     else
     {
@@ -156,14 +158,12 @@ function checkConditions(text)
 {
     if(text == "")
     {
-        swal("Información", "Debe de ingresar un texto", "error");
         showError("Debe de ingresar un texto");
         return false;
     }
 
     if(containsUppercase(text) == true)
     {   
-        swal("Información", "El texto no puede contener mayúsculas, vuelva a intentarlo", "error");
         showError("El texto no puede contener mayúsculas, vuelva a intentarlo");
         focusTextArea();
 
@@ -172,7 +172,6 @@ function checkConditions(text)
 
     if(containsSpecialCaracters(text) == true)
     {
-        swal("Información", "El texto no puede contener carácteres especiales, vuelva a intentarlo", "error");
         showError("El texto no puede contener caracteres especiales, vuelva a intentarlo");
         focusTextArea();
 
@@ -214,8 +213,8 @@ function validateEnableButtons()
 function showError(message)
 {
     document.getElementById("errorscontainer").classList.remove("errors");
-
     document.getElementById("errortext").innerText =message;
+    swal("Información", message, "error");
 }
 
 //No display the div of the errors
