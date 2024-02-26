@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="sweetalert.min.js"></script>
 </head>
 <body>
     <section>
@@ -30,10 +31,10 @@
                     <h2 class="info"><label for="txttext">Ingrese el texto</label></h2>
                 </div>
                 <div class="itemmain">
-                    <p class="instruction">El siguiente sistema cifra y descfira un texto, ingreselo en la sección inferior</p>
+                    <p class="instruction">El siguiente sistema cifra y descifra un texto, ingreselo en la sección inferior</p>
                 </div>
                 <div class="itemmain">
-                    <textarea id="txttext" onkeyup="textAreaValidator(event)" class="textbox" placeholder="Escriba su texto en esta sección"></textarea>       
+                    <textarea id="txttext" onkeyup="textAreaValidator(event)" onpaste="textAreaValidator(event)" class="textbox" placeholder="Escriba su texto en esta sección"></textarea>       
                 </div>
 
                 <div class="itemmain errors" id="errorscontainer">
@@ -72,7 +73,7 @@
         </div>
     </div>
     <div class="footer">
-        <p>Christian Javier Piedra Quiros / Alura - Oracle One - 2024</p>
+        <p>Christian Javier Piedra Quiros - 2024</p>
     </div>
 </section>
 

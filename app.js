@@ -1,8 +1,14 @@
 //Author: Christian Piedra Q
 //Version 1.0
 
-//Variables of the Script
+var TextAreaMain = document.getElementById("txttext");
 
+//Create the action to paste
+TextAreaMain.addEventListener('paste', function(event) {
+    validateEnableButtons();
+});
+
+//Variables of the Script
 matriz = {
     a : "1aiuwuddwqd",
     b: "2bdascac",
@@ -42,7 +48,6 @@ function encryptText(texttoencrypt)
     
         if(matriz.hasOwnProperty(element))
         {
-            console.log(matriz[element]);
             textEncrypted = textEncrypted + matriz[element];
         }
         else
@@ -70,16 +75,7 @@ function decryptText(textEncrypted)
 //Actions of the DOM
 function textAreaValidator(e)
 {
-    let textInserted = document.getElementById("txttext").value;
-
-    if(textInserted != "")
-    {
-        enableButtons();
-    }
-    else
-    {
-        disableButtons();
-    }
+    validateEnableButtons();
 }
 
 
@@ -98,8 +94,6 @@ function Encrypt()
         disableTextAreaButton();
         focusButtonCopy();
 
-        valueResultTitleLabel("Texto Encriptado");
-
         var textencypted = encryptText(textInserted);
 
         valueResultLabel(textencypted);
@@ -116,19 +110,27 @@ function Decrypt()
 
     noDisplayErrors();
 
-    clearTextArea();
-    enableCopyButton();
-    enableCleanButton();
-    disableTextAreaButton();
-
-    valueResultTitleLabel("Texto Desencriptado");
-    focusButtonCopy();
-
-    var textdecrypted = decryptText(textInserted);
-
-    valueResultLabel(textdecrypted);
+    if(checkConditions(textInserted) == true)
+    {
+        clearTextArea();
+        enableCopyButton();
+        enableCleanButton();
+        disableTextAreaButton();
+    
+        valueResultTitleLabel("Texto Desencriptado");
+        focusButtonCopy();
+    
+        var textdecrypted = decryptText(textInserted);
+    
+        valueResultLabel(textdecrypted);
+    }
+    else
+    {
+        focusTextArea();
+    }
 }
 
+//Method 
 function copyToClipboard()
 {
     var copyText = document.getElementById("result").value;
@@ -138,7 +140,6 @@ function copyToClipboard()
 
     valueTextCopied();
 }
-
 
 function actionClean()
 {
@@ -155,23 +156,25 @@ function checkConditions(text)
 {
     if(text == "")
     {
+        swal("Información", "Debe de ingresar un texto", "error");
         showError("Debe de ingresar un texto");
-
         return false;
     }
 
     if(containsUppercase(text) == true)
     {   
-        console.log("Not uppercase");
-
-        showError("El texto no puede contener mayusculas, vuelva a intentarlo")
+        swal("Información", "El texto no puede contener mayúsculas, vuelva a intentarlo", "error");
+        showError("El texto no puede contener mayúsculas, vuelva a intentarlo");
+        focusTextArea();
 
         return false;
     }
 
     if(containsSpecialCaracters(text) == true)
     {
-        showError("El texto no puede contener caracteres especiales, vuelva a intentarlo")
+        swal("Información", "El texto no puede contener carácteres especiales, vuelva a intentarlo", "error");
+        showError("El texto no puede contener caracteres especiales, vuelva a intentarlo");
+        focusTextArea();
 
         return false;
     }
@@ -189,11 +192,25 @@ function containsSpecialCaracters(text)
 }
 
 
-
 function containsUppercase(str) {
     return /[A-Z]/.test(str);
 }
 
+function validateEnableButtons()
+{
+    let textInserted = document.getElementById("txttext").value;
+
+    if(textInserted != "")
+    {
+        enableButtons();
+    }
+    else
+    {
+        disableButtons();
+    }
+}
+
+//Show any error
 function showError(message)
 {
     document.getElementById("errorscontainer").classList.remove("errors");
@@ -201,39 +218,46 @@ function showError(message)
     document.getElementById("errortext").innerText =message;
 }
 
+//No display the div of the errors
 function noDisplayErrors()
 {
     document.getElementById("errorscontainer").classList.add("errors");
 }
 
+//Enable the buttons of encrypt and decrypt
 function enableButtons()
 {
     document.getElementById("btnencypt").disabled = false;
     document.getElementById("btndecrypt").disabled = false;
 }
 
+//Disable the buttons of encrypt and decrypt
 function disableButtons()
 {
     document.getElementById("btnencypt").disabled = true;
     document.getElementById("btndecrypt").disabled = true;
 }
 
+//Focus the TextArea
 function focusTextArea()
 {
     document.getElementById("txttext").focus();
 }
 
+//Focus Copy Button
 function focusButtonCopy()
 {
     document.getElementById("btncopy").focus();
 }
 
+//Clear TextArea and disable Buttons.
 function clearTextArea()
 {
     document.getElementById("txttext").value = "";
     disableButtons();
 }
 
+//Enable Copy Button
 function enableCopyButton()
 {
     document.getElementById("btncopy").disabled = false;
@@ -273,6 +297,7 @@ function valueTextCopied()
 {
     document.getElementById("infocopy").classList.remove("nodisplay");
     document.getElementById("infocopy").innerText = "Copiado!!!";
+    swal("Texto Copiado", "El texto ha sido copiado, almacenelo o copielo para encriptar o desencriptar", "info");
 }
 
 function copiedTextNonDisplay()
