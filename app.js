@@ -34,7 +34,6 @@ matriz = {
 }
 
 //Methods for encrypt and decrypt
-
 function encryptText(texttoencrypt)
 {
     let textEncrypted = "";
@@ -69,7 +68,6 @@ function decryptText(textEncrypted)
 }
 
 //Actions of the DOM
-
 function textAreaValidator(e)
 {
     let textInserted = document.getElementById("txttext").value;
@@ -85,7 +83,7 @@ function textAreaValidator(e)
 }
 
 
-
+//Functions of the Webpage Buttons
 function Encrypt()
 {
     let textInserted = document.getElementById("txttext").value;
