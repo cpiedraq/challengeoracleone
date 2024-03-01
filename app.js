@@ -120,6 +120,7 @@ function Encrypt()
         enableCleanButton();
         disableTextArea();
         focusButtonCopy();
+        valueResultTitleLabel("Resultado del texto encriptado");
 
         var textencypted = encryptText(textInserted);
         valueResultLabel(textencypted);
@@ -144,8 +145,7 @@ function Decrypt()
         clearTextArea();
         enableCopyButton();
         enableCleanButton();
-        disableTextArea();
-    
+        disableTextArea();   
         valueResultTitleLabel("Texto Desencriptado");
         focusButtonCopy();
     
