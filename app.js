@@ -44,6 +44,15 @@ matriz = {
     " " : "17gqgwgywygwgyq"
 }
 
+matriz = 
+{
+    a: "ai",
+    e: "enter",
+    i: "imes",
+    o: "ober",
+    u: "ufat"
+}
+
 //METHODS OF THE HTML COMPONENTS 
 
 //Method for encrypt Text
@@ -105,6 +114,7 @@ function Encrypt()
 
     if(checkConditions(textInserted) == true)
     {
+        showPanelResults();
         clearTextArea();
         enableCopyButton();
         enableCleanButton();
@@ -130,6 +140,7 @@ function Decrypt()
 
     if(checkConditions(textInserted) == true)
     {
+        showPanelResults();
         clearTextArea();
         enableCopyButton();
         enableCleanButton();
@@ -162,6 +173,7 @@ function copyToClipboard()
 
 function actionClean()
 {
+    cleanPanelResults();
     copiedTextNonDisplay();
     disableCopyButton();
     disableCleanButton();
@@ -332,4 +344,16 @@ function valueResultTitleLabel(text)
 function changeColorResult(Nameofclass)
 {
     document.getElementById("result").classList.add(Nameofclass);
+}
+
+function showPanelResults()
+{
+    document.getElementById("panelresults").classList.remove("nodisplay");
+    document.getElementById("panelresultsinfo").classList.add("nodisplay");
+}
+
+function cleanPanelResults()
+{
+    document.getElementById("panelresultsinfo").classList.remove("nodisplay");
+    document.getElementById("panelresults").classList.add("nodisplay");
 }

@@ -106,6 +106,7 @@ h3
     border-radius: 15px;
     flex-grow: 3;
     display:inline-flex;
+    transition: max-height 0.5s, overflow 0s;
 }
 
 .results
@@ -135,7 +136,7 @@ h3
 
 .imagechallenge
 {
-    height:150px;
+    height:250px;
     margin-right: auto;
 }
 

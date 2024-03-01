@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="column">
-            <div class="containerform lastdiv">
+            <div id="panelresults" class="containerform lastdiv nodisplay">
                 <div class="itemmaintwo">
                     <h2 class="info" id="titleresult">Resultados</h2>
                     <textarea readonly id="result" class="textboxresults" placeholder="No se ha encriptado o descriptado algún texto"></textarea>
@@ -64,11 +64,17 @@
                 <div class="itemmaintwo">
                     <input id="btnclean" onclick="actionClean()" class="clean buttonsmaintwo" type="button" disabled value="Limpiar los campos" >
                 </div>
+            </div>
+            <div id="panelresultsinfo" class="containerform lastdiv">
+                <div class="itemmaintwo">
+                    <h2 class="info" id="titleresult">Ningún mensaje fue encontrado</h2>
+                    <p>Ingrese el texto que desees para encriptar o desencriptar</p>
+                </div>
                 <div class="itemmaintwo">
                     <div class="containerimage">
                         <img class="imagechallenge" src="image.svg">
                     </div>
-                </div>                
+                </div>    
             </div>
         </div>
     </div>
